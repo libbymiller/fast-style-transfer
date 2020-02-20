@@ -1,6 +1,7 @@
-import tensorflow as tf, pdb
+import tensorflow.compat.v1 as tf, pdb
 
 WEIGHTS_INIT_STDEV = .1
+tf.disable_v2_behavior()
 
 def net(image):
     conv1 = _conv_layer(image, 32, 9, 1)

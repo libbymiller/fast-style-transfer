@@ -3,7 +3,8 @@ import sys
 sys.path.insert(0, 'src')
 import transform, numpy as np, vgg, pdb, os
 import scipy.misc
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from utils import save_img, get_img, exists, list_files
 from argparse import ArgumentParser
 from collections import defaultdict
@@ -184,6 +185,7 @@ def check_opts(opts):
         assert opts.batch_size > 0
 
 def main():
+    tf.disable_v2_behavior()
     parser = build_parser()
     opts = parser.parse_args()
     check_opts(opts)
